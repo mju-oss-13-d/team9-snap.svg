@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+ </HEAD>
+<script type="text/javascript" src="/dist/snap.svg.js"></script>
+ <BODY>
+ <svg id="svg"> </svg>
+ </BODY>
+<script type="text/javascript">
+var s = Snap("#svg");
+var bigCircle = s.circle(150, 150, 100);
+bigCircle.attr({
+    fill: "#bada55",
+    stroke: "#000",
+    strokeWidth: 5
+});
+</script>
+</HTML>
