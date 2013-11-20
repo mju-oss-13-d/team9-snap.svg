@@ -1,58 +1,92 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
- <HEAD>
-  <TITLE> Snap.svg Test </TITLE>
- </HEAD>
-<script type="text/javascript" src="/snap.svg.js"></script>
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
 <style>
-#header {height: 10px; background: #EAEAEA; }
+#header {height: 30px;}
 #contents {display: table;}
-#contents_left, #contents_right {display: table-cell; width: 50%;}
-#footer {clear: both; height: 10px; background: #EAEAEA;}
+#contents_left {display: table-cell; width: 50%;}
+#contents_right {display: table-cell; width: 50%;}
+#footer {clear: both; height: 30px; }
+
+#contents .syntaxhighlighter {overflow-y: hidden !important;}
+.circle {width: 200px; height: 200px;}
 </style>
- <BODY>
+<title>Snap.svg Test</title>
+</head>
+<body link="blue" vlink="blue" alink="blue">
 <div id="header">
-	<!-- header -->
-	</div>
-		<div id="contents">
-			<div id = "contents_left">
-			<!-- left contents -->
-			<script type="text/javascript">
-			var s = Snap(200, 200);
-			var bigCircle = s.circle(100, 100, 60);
-			</script>
-			<pre>
-<font face="Courier New">
-<font color="#0000ff">var </font><font color="#800000">s = Snap(</font><font color="#800080">200</font><font color="#800000">, </font><font color="#800080">200</font><font color="#800000">);</font>
-<font color="#0000ff">var </font><font color="#800000">bigCircle = s.circle(</font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">60</font><font color="#800000">);</font>
-</font>
-			</pre>
-			<script type="text/javascript">
-			var s = Snap(200, 200);
-			var bigCircle = s.circle(100, 100, 60);
-			bigCircle.drag();
-			</script>
-			<pre>
-<font face="Courier New">
-<font color="#0000ff">var </font><font color="#800000">s = Snap(</font><font color="#800080">200</font><font color="#800000">, </font><font color="#800080">200</font><font color="#800000">);</font>
-<font color="#0000ff">var </font><font color="#800000">bigCircle = s.circle(</font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">60</font><font color="#800000">);</font>
-<font color="#800000">bigCircle.drag();</font>
-</font>
-			</pre>
-			<script type="text/javascript">
-			var s = Snap(200, 200);
-			var bigCircle = s.circle(100, 100, 60);
-			bigCircle.drag();
-			</script>
-			<!-- left contents end-->
-			</div>
-			<div id = "contents_right">
-			<!-- right contents -->
-			<!-- right contents end-->
-			</div>
-		</div>
-	<div id = "footer">
-	<!-- footer -->
+<!-- header -->
 </div>
- </BODY>
-</HTML>
+<div id="contents">
+	<div id = "contents_left">
+	<!-- left contents -->
+	<pre class="brush: javascript">
+		var s = Snap("#svg1");
+		s.circle(100, 100, 60);
+	</pre>
+	<svg id="svg1" class="circle"></svg>
+
+	<pre class="brush: javascript">
+		var s = Snap("#svg2");
+		var bigCircle = s.circle(100, 100, 60);
+		bigCircle.drag();
+	</pre>
+	<svg id="svg2" class="circle"></svg>
+	
+	<pre class="brush: javascript">
+		var s = Snap("#svg");
+		s.circle(100, 100, 60);
+		s.attr({
+			fill: "#fc0",
+			stroke: "#000",
+			strokeWidth: 2,
+			"fill-opacity": 0.5
+		});
+	</pre>
+	<svg id="svg3" class="circle"></svg>
+	<!-- left contents end-->
+	</div>
+	<div id = "contents_right">
+	<!-- right contents -->
+	<!-- right contents end-->
+	</div>
+</div>
+<div id = "footer">
+<!-- footer -->
+</div>
+
+<script src="/snap.svg.js"></script>
+<script type="text/javascript">
+var s = Snap("#svg1");
+var bigCircle = s.circle(100, 100, 60);
+
+var s = Snap("#svg2");
+var bigCircle = s.circle(100, 100, 60);
+bigCircle.drag();
+
+var s = Snap("#svg3");
+s.circle(100, 100, 60);
+s.attr({
+	fill: "#fc0",
+	stroke: "#000",
+	strokeWidth: 2,
+	"fill-opacity": 0.5
+});
+</script>
+
+
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushXml.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCss.js" type="text/javascript"></script>
+<script>
+	SyntaxHighlighter.all();
+</script>
+</body>
+</html>
