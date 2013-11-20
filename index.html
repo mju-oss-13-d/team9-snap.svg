@@ -1,19 +1,58 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
  <HEAD>
-  <TITLE> New Document </TITLE>
+  <TITLE> Snap.svg Test </TITLE>
  </HEAD>
 <script type="text/javascript" src="/snap.svg.js"></script>
+<style>
+#header {height: 10px; background: #EAEAEA; }
+#contents {display: table;}
+#contents_left, #contents_right {display: table-cell; width: 50%;}
+#footer {clear: both; height: 10px; background: #EAEAEA;}
+</style>
  <BODY>
- <svg id="svg"> </svg>
+<div id="header">
+	<!-- header -->
+	</div>
+		<div id="contents">
+			<div id = "contents_left">
+			<!-- left contents -->
+			<script type="text/javascript">
+			var s = Snap(200, 200);
+			var bigCircle = s.circle(100, 100, 60);
+			</script>
+			<pre>
+<font face="Courier New">
+<font color="#0000ff">var </font><font color="#800000">s = Snap(</font><font color="#800080">200</font><font color="#800000">, </font><font color="#800080">200</font><font color="#800000">);</font>
+<font color="#0000ff">var </font><font color="#800000">bigCircle = s.circle(</font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">60</font><font color="#800000">);</font>
+</font>
+			</pre>
+			<script type="text/javascript">
+			var s = Snap(200, 200);
+			var bigCircle = s.circle(100, 100, 60);
+			bigCircle.drag();
+			</script>
+			<pre>
+<font face="Courier New">
+<font color="#0000ff">var </font><font color="#800000">s = Snap(</font><font color="#800080">200</font><font color="#800000">, </font><font color="#800080">200</font><font color="#800000">);</font>
+<font color="#0000ff">var </font><font color="#800000">bigCircle = s.circle(</font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">100</font><font color="#800000">, </font><font color="#800080">60</font><font color="#800000">);</font>
+<font color="#800000">bigCircle.drag();</font>
+</font>
+			</pre>
+			<script type="text/javascript">
+			var s = Snap(200, 200);
+			var bigCircle = s.circle(100, 100, 60);
+			bigCircle.drag();
+			</script>
+			<!-- left contents end-->
+			</div>
+			<div id = "contents_right">
+			<!-- right contents -->
+			<!-- right contents end-->
+			</div>
+		</div>
+	<div id = "footer">
+	<!-- footer -->
+</div>
  </BODY>
-<script type="text/javascript">
-var s = Snap("#svg");
-var bigCircle = s.circle(150, 150, 100);
-bigCircle.attr({
-    fill: "#bada55",
-    stroke: "#000",
-    strokeWidth: 5
-});
-</script>
 </HTML>
