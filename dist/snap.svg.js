@@ -1,4 +1,4 @@
-﻿// Snap.svg 0.0.1
+// Snap.svg 0.0.1
 // 
 // Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
 // 
@@ -28,11 +28,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// �뚢�������������������������������������������������������������� \\
-// �� Eve 0.4.2 - JavaScript Events Library                      �� \\
-// �쒋�������������������������������������������������������������� \\
-// �� Author Dmitry Baranovskiy (http://dmitry.baranovskiy.com/) �� \\
-// �붴�������������������������������������������������������������� \\
+// ┌────────────────────────────────────────────────────────────┐ \\
+// │ Eve 0.4.2 - JavaScript Events Library                      │ \\
+// ├────────────────────────────────────────────────────────────┤ \\
+// │ Author Dmitry Baranovskiy (http://dmitry.baranovskiy.com/) │ \\
+// └────────────────────────────────────────────────────────────┘ \\
 
 (function (glob) {
     var version = "0.4.2",
@@ -171,7 +171,7 @@
      * eve.on
      [ method ]
      **
-     * Binds given event handler with a given name. You can use wildcards ��*`�� for the names:
+     * Binds given event handler with a given name. You can use wildcards “`*`” for the names:
      | eve.on("*.under.*", f);
      | eve("mouse.under.floor"); // triggers f
      * Use @eve to trigger the listener.
@@ -189,7 +189,7 @@
      * This will ensure that `catchIt()` function will be called before `eatIt()`.
 	 *
      * If you want to put your handler before non-indexed handlers, specify a negative value.
-     * Note: I assume most of the time you don�셳 need to worry about z-index, but it�셲 nice to have this feature �쐉ust in case��.
+     * Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
     \*/
     eve.on = function (name, f) {
 		name = String(name);
@@ -226,7 +226,7 @@
  	 | });
      > Arguments
 	 - event (string) event name
-	 - varargs (��) and any other arguments
+	 - varargs (…) and any other arguments
 	 = (function) possible event handler function
     \*/
 	eve.f = function (event) {
@@ -256,7 +256,7 @@
      **
      = (string) name of the event, if `subname` is not specified
      * or
-     = (boolean) `true`, if current event�셲 name contains `subname`
+     = (boolean) `true`, if current event’s name contains `subname`
     \*/
     eve.nt = function (subname) {
         if (subname) {
@@ -1407,7 +1407,7 @@ Snap.angle = angle;
  [ method ]
  **
  * Handy replacement for the `typeof` operator
- - o (��) any object or primitive
+ - o (…) any object or primitive
  - type (string) name of the type, e.g., `string`, `function`, `number`, etc.
  = (boolean) `true` if given value is of given type
 \*/
@@ -1723,20 +1723,20 @@ Snap.Matrix = Matrix;
  - color (string) color string in one of the following formats:
  # <ul>
  #     <li>Color name (<code>red</code>, <code>green</code>, <code>cornflowerblue</code>, etc)</li>
- #     <li>#�™™� �� shortened HTML color: (<code>#000</code>, <code>#fc0</code>, etc.)</li>
- #     <li>#�™™™™™� �� full length HTML color: (<code>#000000</code>, <code>#bd2300</code>)</li>
- #     <li>rgb(�™™�, �™™�, �™™�) �� red, green and blue channels values: (<code>rgb(200,&nbsp;100,&nbsp;0)</code>)</li>
- #     <li>rgba(�™™�, �™™�, �™™�, �™™�) �� also with opacity</li>
- #     <li>rgb(�™™�%, �™™�%, �™™�%) �� same as above, but in %: (<code>rgb(100%,&nbsp;175%,&nbsp;0%)</code>)</li>
- #     <li>rgba(�™™�%, �™™�%, �™™�%, �™™�%) �� also with opacity</li>
- #     <li>hsb(�™™�, �™™�, �™™�) �� hue, saturation and brightness values: (<code>hsb(0.5,&nbsp;0.25,&nbsp;1)</code>)</li>
- #     <li>hsba(�™™�, �™™�, �™™�, �™™�) �� also with opacity</li>
- #     <li>hsb(�™™�%, �™™�%, �™™�%) �� same as above, but in %</li>
- #     <li>hsba(�™™�%, �™™�%, �™™�%, �™™�%) �� also with opacity</li>
- #     <li>hsl(�™™�, �™™�, �™™�) �� hue, saturation and luminosity values: (<code>hsb(0.5,&nbsp;0.25,&nbsp;0.5)</code>)</li>
- #     <li>hsla(�™™�, �™™�, �™™�, �™™�) �� also with opacity</li>
- #     <li>hsl(�™™�%, �™™�%, �™™�%) �� same as above, but in %</li>
- #     <li>hsla(�™™�%, �™™�%, �™™�%, �™™�%) �� also with opacity</li>
+ #     <li>#••• — shortened HTML color: (<code>#000</code>, <code>#fc0</code>, etc.)</li>
+ #     <li>#•••••• — full length HTML color: (<code>#000000</code>, <code>#bd2300</code>)</li>
+ #     <li>rgb(•••, •••, •••) — red, green and blue channels values: (<code>rgb(200,&nbsp;100,&nbsp;0)</code>)</li>
+ #     <li>rgba(•••, •••, •••, •••) — also with opacity</li>
+ #     <li>rgb(•••%, •••%, •••%) — same as above, but in %: (<code>rgb(100%,&nbsp;175%,&nbsp;0%)</code>)</li>
+ #     <li>rgba(•••%, •••%, •••%, •••%) — also with opacity</li>
+ #     <li>hsb(•••, •••, •••) — hue, saturation and brightness values: (<code>hsb(0.5,&nbsp;0.25,&nbsp;1)</code>)</li>
+ #     <li>hsba(•••, •••, •••, •••) — also with opacity</li>
+ #     <li>hsb(•••%, •••%, •••%) — same as above, but in %</li>
+ #     <li>hsba(•••%, •••%, •••%, •••%) — also with opacity</li>
+ #     <li>hsl(•••, •••, •••) — hue, saturation and luminosity values: (<code>hsb(0.5,&nbsp;0.25,&nbsp;0.5)</code>)</li>
+ #     <li>hsla(•••, •••, •••, •••) — also with opacity</li>
+ #     <li>hsl(•••%, •••%, •••%) — same as above, but in %</li>
+ #     <li>hsla(•••%, •••%, •••%, •••%) — also with opacity</li>
  # </ul>
  * Note that `%` can be used any time: `rgb(20%, 255, 50%)`.
  = (object) RGB object in the following format:
@@ -1744,7 +1744,7 @@ Snap.Matrix = Matrix;
  o     r (number) red,
  o     g (number) green,
  o     b (number) blue,
- o     hex (string) color in HTML/CSS format: #�™™™™™�,
+ o     hex (string) color in HTML/CSS format: #••••••,
  o     error (boolean) true if string can't be parsed
  o }
 \*/
@@ -1942,7 +1942,7 @@ packageRGB = function (r, g, b, o) {
  o     r (number) red,
  o     g (number) green,
  o     b (number) blue,
- o     hex (string) color in HTML/CSS format: #�™™™™™�,
+ o     hex (string) color in HTML/CSS format: #••••••,
  o     error (boolean) `true` if string can't be parsed,
  o     h (number) hue,
  o     s (number) saturation,
@@ -1999,7 +1999,7 @@ Snap.color = function (clr) {
  o     r (number) red,
  o     g (number) green,
  o     b (number) blue,
- o     hex (string) color in HTML/CSS format: #�™™™™™�
+ o     hex (string) color in HTML/CSS format: #••••••
  o }
 \*/
 Snap.hsb2rgb = function (h, s, v, o) {
@@ -2035,7 +2035,7 @@ Snap.hsb2rgb = function (h, s, v, o) {
  o     r (number) red,
  o     g (number) green,
  o     b (number) blue,
- o     hex (string) color in HTML/CSS format: #�™™™™™�
+ o     hex (string) color in HTML/CSS format: #••••••
  o }
 \*/
 Snap.hsl2rgb = function (h, s, l, o) {
@@ -3134,7 +3134,7 @@ function arrayFirstValue(arr) {
      = (object) in format:
      o {
      o     anim (object) animation object,
-     o     curStatus (number) 0..1 �� status of the animation: 0 �� just started, 1 �� just finished,
+     o     curStatus (number) 0..1 — status of the animation: 0 — just started, 1 — just finished,
      o     status (function) gets or sets the status of the animation,
      o     stop (function) stops the animation
      o }
@@ -3280,7 +3280,7 @@ function arrayFirstValue(arr) {
      * Element.data
      [ method ]
      **
-     * Adds or retrieves given value associated with given key. (Don�셳 confuse
+     * Adds or retrieves given value associated with given key. (Don’t confuse
      * with `data-` attributes)
      *
      * See also @Element.removeData
@@ -3433,7 +3433,7 @@ Fragment.prototype.selectAll = Element.prototype.selectAll;
  **
  * Creates a DOM fragment from a given list of elements or strings
  **
- - varargs (��) SVG string
+ - varargs (…) SVG string
  = (Fragment) the @Fragment
 \*/
 Snap.fragment = function () {
@@ -3724,7 +3724,7 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
      - height (number) height of the image
      = (object) the `image` element
      * or
-     = (object) Rapha챘l element object with type `image`
+     = (object) Raphaël element object with type `image`
      **
      > Usage
      | var c = paper.image("apple.png", 10, 10, 80, 80);
@@ -3806,12 +3806,12 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
      # <tr><td>V</td><td>vertical lineto</td><td>y+</td></tr>
      # <tr><td>C</td><td>curveto</td><td>(x1 y1 x2 y2 x y)+</td></tr>
      # <tr><td>S</td><td>smooth curveto</td><td>(x2 y2 x y)+</td></tr>
-     # <tr><td>Q</td><td>quadratic B챕zier curveto</td><td>(x1 y1 x y)+</td></tr>
-     # <tr><td>T</td><td>smooth quadratic B챕zier curveto</td><td>(x y)+</td></tr>
+     # <tr><td>Q</td><td>quadratic Bézier curveto</td><td>(x1 y1 x y)+</td></tr>
+     # <tr><td>T</td><td>smooth quadratic Bézier curveto</td><td>(x y)+</td></tr>
      # <tr><td>A</td><td>elliptical arc</td><td>(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+</td></tr>
-     # <tr><td>R</td><td><a href="http://en.wikipedia.org/wiki/Catmull�밨om_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
+     # <tr><td>R</td><td><a href="http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
      * * _Catmull-Rom curveto_ is a not standard SVG command and added to make life easier.
-     * Note: there is a special case when a path consists of only three commands: `M10,10R�쫧`. In this case the path connects back to its starting point.
+     * Note: there is a special case when a path consists of only three commands: `M10,10R…z`. In this case the path connects back to its starting point.
      > Usage
      | var c = paper.path("M10 10L90 90");
      | // draw a diagonal line:
@@ -3835,7 +3835,7 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
      **
      * Creates a group element
      **
-     - varargs (��) #optional elements to nest within the group
+     - varargs (…) #optional elements to nest within the group
      = (object) the `g` element
      **
      > Usage
@@ -3932,7 +3932,7 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
      **
      - points (array) array of points
      * or
-     - varargs (��) points
+     - varargs (…) points
      = (object) the `polyline` element
      **
      > Usage
@@ -6000,7 +6000,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      **
      * Utility method
      **
-     * Finds dot coordinates on the given cubic bezi챕r curve at the given t
+     * Finds dot coordinates on the given cubic beziér curve at the given t
      - p1x (number) x of the first point of the curve
      - p1y (number) y of the first point of the curve
      - c1x (number) x of the first anchor of the curve
@@ -6040,7 +6040,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      **
      * Utility method
      **
-     * Returns the bounding box of a given cubic bezi챕r curve
+     * Returns the bounding box of a given cubic beziér curve
      - p1x (number) x of the first point of the curve
      - p1y (number) y of the first point of the curve
      - c1x (number) x of the first anchor of the curve
@@ -6050,7 +6050,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      - p2x (number) x of the second point of the curve
      - p2y (number) y of the second point of the curve
      * or
-     - bez (array) array of six points for bezi챕r curve
+     - bez (array) array of six points for beziér curve
      = (object) bounding box
      o {
      o     x: (number) x coordinate of the left top point of the box,
@@ -6105,8 +6105,8 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      o         t2: (number) t value for segment of path2,
      o         segment1: (number) order number for segment of path1,
      o         segment2: (number) order number for segment of path2,
-     o         bez1: (array) eight coordinates representing bezi챕r curve for the segment of path1,
-     o         bez2: (array) eight coordinates representing bezi챕r curve for the segment of path2
+     o         bez1: (array) eight coordinates representing beziér curve for the segment of path1,
+     o         bez2: (array) eight coordinates representing beziér curve for the segment of path2
      o     }
      o ]
     \*/
@@ -6120,7 +6120,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      **
      * Returns `true` if given point is inside a given closed path.
      *
-     * Note: fill mode doesn�셳 affect the result of this method.
+     * Note: fill mode doesn’t affect the result of this method.
      - path (string) path string
      - x (number) x of the point
      - y (number) y of the point
@@ -6175,7 +6175,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      **
      * Utility method
      **
-     * Converts path to a new path where all segments are cubic bezi챕r curves
+     * Converts path to a new path where all segments are cubic beziér curves
      - pathString (string|array) path string or array of segments
      = (array) array of segments
     \*/
@@ -6301,7 +6301,7 @@ Snap.plugin(function (Snap, Element, Paper, glob) {
      **
      - index (number) position of the deletion
      - count (number) number of element to remove
-     - insertion�� (object) #optional elements to insert
+     - insertion… (object) #optional elements to insert
      = (object) set elements that were deleted
     \*/
     setproto.splice = function (index, count, insertion) {
