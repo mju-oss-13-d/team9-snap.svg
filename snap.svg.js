@@ -61,7 +61,7 @@
      = (object) array of returned values from the listeners
     \*/
         eve = function (name, scope) {
-			name = String(name);
+            name = String(name);
             var e = events,
                 oldstop = stop,
                 args = Array.prototype.slice.call(arguments, 2),
@@ -121,8 +121,8 @@
             current_event = ce;
             return out.length ? out : null;
         };
-		// Undocumented. Debug only.
-		eve._events = events;
+        // Undocumented. Debug only.
+        eve._events = events;
     /*\
      * eve.listeners
      [ method ]
@@ -187,15 +187,15 @@
      | eve.on("mouse", scream);
      | eve.on("mouse", catchIt)(1);
      * This will ensure that `catchIt()` function will be called before `eatIt()`.
-	 *
+     *
      * If you want to put your handler before non-indexed handlers, specify a negative value.
      * Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
     \*/
     eve.on = function (name, f) {
-		name = String(name);
-		if (typeof f != "function") {
-			return function () {};
-		}
+        name = String(name);
+        if (typeof f != "function") {
+            return function () {};
+        }
         var names = name.split(separator),
             e = events;
         for (var i = 0, ii = names.length; i < ii; i++) {
@@ -218,23 +218,23 @@
      [ method ]
      **
      * Returns function that will fire given event with optional arguments.
-	 * Arguments that will be passed to the result function will be also
-	 * concated to the list of final arguments.
- 	 | el.onclick = eve.f("click", 1, 2);
- 	 | eve.on("click", function (a, b, c) {
- 	 |     console.log(a, b, c); // 1, 2, [event object]
- 	 | });
+     * Arguments that will be passed to the result function will be also
+     * concated to the list of final arguments.
+     | el.onclick = eve.f("click", 1, 2);
+     | eve.on("click", function (a, b, c) {
+     |     console.log(a, b, c); // 1, 2, [event object]
+     | });
      > Arguments
-	 - event (string) event name
-	 - varargs (…) and any other arguments
-	 = (function) possible event handler function
+     - event (string) event name
+     - varargs (…) and any other arguments
+     = (function) possible event handler function
     \*/
-	eve.f = function (event) {
-		var attrs = [].slice.call(arguments, 1);
-		return function () {
-			eve.apply(null, [event, null].concat(attrs).concat([].slice.call(arguments, 0)));
-		};
-	};
+    eve.f = function (event) {
+        var attrs = [].slice.call(arguments, 1);
+        return function () {
+            eve.apply(null, [event, null].concat(attrs).concat([].slice.call(arguments, 0)));
+        };
+    };
     /*\
      * eve.stop
      [ method ]
@@ -281,7 +281,7 @@
      [ method ]
      **
      * Removes given function from the list of event listeners assigned to given name.
-	 * If no arguments specified all the events will be cleared.
+     * If no arguments specified all the events will be cleared.
      **
      > Arguments
      **
@@ -295,10 +295,10 @@
      * See @eve.off
     \*/
     eve.off = eve.unbind = function (name, f) {
-		if (!name) {
-		    eve._events = events = {n: {}};
-			return;
-		}
+        if (!name) {
+            eve._events = events = {n: {}};
+            return;
+        }
         var names = name.split(separator),
             e,
             key,
@@ -3684,6 +3684,58 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
         return el;
     };
     /*\
+     * Paper.myrect
+     [ method ]
+     *
+     * Draws a rectangle
+     **
+     - x (number) x coordinate of the top left corner
+     - y (number) y coordinate of the top left corner
+     - width (number) width
+     - height (number) height
+     - rx (number) #optional horizontal radius for rounded corners, default is 0
+     - ry (number) #optional vertical radius for rounded corners, default is rx or 0
+     = (object) the `rect` element
+     **
+     > Usage
+     | // regular rectangle
+     | var c = paper.myrect(10, 10, 50, 50);
+     | // rectangle with rounded corners
+     | var c = paper.myrect(40, 40, 50, 50, 10);
+     | // rectangle with green color
+     | var c = paper.myrect(40, 40, 50, 0, 0, "green");
+     | // rectangle disappear after 10 seconds
+     | var c = paper.myrect(40, 40, 50, 0, 0, "green", 10000);
+    \*/
+    proto.myrect = function (x, y, w, h, rx, ry, f, s) {
+        var el = make("rect", this.node);
+        if (ry == null) {
+            ry = rx;
+        }
+        if (is(x, "object") && "x" in x) {
+            el.attr(x);
+        } else if (x != null) {
+            el.attr({
+                x: x,
+                y: y,
+                width: w,
+                height: h,
+                fill: f
+            });
+            if (rx != null) {
+                el.attr({
+                    rx: rx,
+                    ry: ry,
+                    fill: f
+                });
+            }
+        }
+        if(s){
+            el.animate({width:0, height:0}, s);
+        }
+        return el;
+    };
+    /*\
      * Paper.circle
      [ method ]
      **
@@ -3707,6 +3759,40 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
                 cy: cy,
                 r: r
             });
+        }
+        return el;
+    };
+
+    /*\
+     * Paper.mycircle
+     [ method ]
+     **
+     * Draws a circle
+     **
+     - x (number) x coordinate of the centre
+     - y (number) y coordinate of the centre
+     - r (number) radius
+     - f (rgb) rgb color chord
+     - s (number) duration of the animation in milliseconds
+     = (object) the `circle` element
+     **
+     > Usage
+     | var c = paper.mycircle(50, 50, 40, "#fc0", 10000);
+    \*/
+    proto.mycircle = function (cx, cy, r, f, s) {
+        var el = make("circle", this.node);
+        if (is(cx, "object") && "cx" in cx) {
+            el.attr(cx);
+        } else if (cx != null) {
+            el.attr({
+                cx: cx,
+                cy: cy,
+                r: r,
+                fill: f
+            });
+        }
+        if(s){
+            el.animate({r: 0}, s);
         }
         return el;
     };
@@ -3783,6 +3869,74 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
                 rx: rx,
                 ry: ry
             });
+        }
+        return el;
+    };
+    /*\
+     * Paper.myellipse
+     [ method ]
+     **
+     * Draws an ellipse
+     **
+     - x (number) x coordinate of the centre
+     - y (number) y coordinate of the centre
+     - rx (number) horizontal radius
+     - ry (number) vertical radius
+     - f (rgb) rgb color chord
+     - a (boolean) animation on/off
+     - l (url) url to connect
+     = (object) the `ellipse` element
+     **
+     > Usage
+     | var c = paper.myellipse(50, 50, 40, 20, "green");
+    \*/
+    proto.myellipse = function (cx, cy, rx, ry, f, a, l) {
+        var el = make("ellipse", this.node);
+        if (is(cx, "object") && "cx" in cx) {
+            el.attr(cx);
+        } else if (cx != null) {
+            el.attr({
+                cx: cx,
+                cy: cy,
+                rx: rx,
+                ry: ry,
+                fill: f
+            });
+        }
+
+        if(a == 1){
+            var timer;
+            function close() {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    el.animate({
+                        rx: rx/2,
+                        ry: ry/2
+                    }, 100);
+                }, 400);
+            }
+
+            function open() {
+                clearTimeout(timer);
+                el.animate({
+                    rx: rx,
+                    ry: ry
+                }, 500, mina.elastic);
+            }
+
+            timer = setTimeout(close, 50);
+            el.hover(open, 
+                function () {
+                    timer = setTimeout(close, 50);
+                }
+            );
+        }
+
+        if(l){
+            el.click(function(){
+                  window.open(l);
+            });
+
         }
         return el;
     };
@@ -3893,6 +4047,80 @@ function gradientRadial(defs, cx, cy, r, fx, fy) {
                 text: text || ""
             });
         }
+        return el;
+    };
+    /*\
+     * Paper.mytext
+     [ method ]
+     **
+     * Draws a text string
+     **
+     - x (number) x coordinate position
+     - y (number) y coordinate position
+     - text (string|array) The text string to draw or array of strings to nest within separate `<tspan>` elements
+     - s (number) font size (px)
+     - r (rgb) rgb chord
+     - a (boolean) animation on/off
+     - l (url) url to connect
+     = (object) the `text` element
+     **
+     > Usage
+     | var t1 = paper.mytext(50, 50, "Snap", 10, "red", 0);
+     | var t2 = paper.mytext(50, 50, ["S","n","a","p"], 10, "#FFF", 1);
+    \*/
+    proto.mytext = function (x, y, text, r, s, a, l) {
+        var el = make("text", this.node);
+        if (is(x, "object")) {
+            el.attr(x);
+        } else if (x != null) {
+            el.attr({
+                x: x,
+                y: y,
+                text: text || ""
+            });
+        }
+        if(r){
+            el.attr({
+                fill: r
+            });
+        }
+        if(s){
+            el.attr({
+                "font-size": s + "px"
+            });
+        }
+        if(a == 1){
+            var timer;
+            function close() {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    el.animate({
+                        "fill-opacity": 0.55
+                    }, 100);
+                }, 400);
+            }
+
+            function open() {
+                clearTimeout(timer);
+                el.animate({
+                    "fill-opacity": 1
+                }, 500, mina.elastic);
+            }
+
+            timer = setTimeout(close, 50);
+            el.hover(open, 
+                function () {
+                    timer = setTimeout(close, 50);
+                }
+            );
+        }
+
+        if(l){
+            el.click(function(){
+                  window.open(l);
+            });
+        }
+
         return el;
     };
     /*\
